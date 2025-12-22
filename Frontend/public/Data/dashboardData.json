@@ -17,5 +17,11 @@
   "conversionsData": [
     { "type": "Abroad Enrollment", "count": 1 },
     { "type": "Class Enrollment", "count": 12 }
+  ],
+  "counselors": [
+    { "id": "1", "name": "Pratyush khadka" },
+    { "id": "2", "name": "Sarah Johnson" },
+    { "id": "3", "name": "Michael Brown" },
+    { "id": "4", "name": "Emily Davis" }
   ]
 }

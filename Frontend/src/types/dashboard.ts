@@ -15,8 +15,15 @@ export interface Conversion {
     count:number
 }
 
+export interface Counselor {
+    id: string;
+    name: string;
+}
+
+
 export interface DashboardData {
     statsCards: StatCard[];
     visaStatusData : VisaStatus[];
     conversionsData : Conversion[];
+    counselor : Counselor[]
 }

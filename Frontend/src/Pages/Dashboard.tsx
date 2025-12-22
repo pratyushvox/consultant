@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import VisaStatusSection from "@/Components/ViewstatusofApplicants";
-// import {ConversionChart} from "@/Components/ConversionChart"
+import { ConversionsChart} from "@/Components/ConversionChart"
 
 const iconMap = [
   <Users className="h-5 w-5 text-blue-600" />,
@@ -78,12 +78,15 @@ const Dashboard = () => {
         {loading ? (
           <>
             <Skeleton className="h-64 rounded-xl" />
-            {/* <Skeleton className="h-64 rounded-xl" /> */}
+            <Skeleton className="h-64 rounded-xl" />
           </>
         ) : (
           <>
             <VisaStatusSection visaStatusData={data!.visaStatusData} />
-            {/* <ConversionChart conversionsData={data!.conversionsData} /> */}
+            < ConversionsChart 
+            conversionsData={data!.conversionsData}
+            counselors={data!.counselors}  />
+            
           </>
         )}
       </div>
