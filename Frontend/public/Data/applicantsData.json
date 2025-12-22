@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Sujata Thatal",
+    "phone": "+977-9801234567",
+    "email": "sujata@example.com",
+    "status": "Pending",
+    "interestedCountry": "USA",
+    "interestedCourse": "Computer Science",
+    "city": "Kathmandu"
+  },
+  {
+    "id": 2,
+    "name": "Pratyush Khadka",
+    "phone": "+977-9812345678",
+    "email": "pratyush@example.com",
+    "status": "Accepted",
+    "interestedCountry": "Canada",
+    "interestedCourse": "Business Administration",
+    "city": "Pokhara"
+  },
+  {
+    "id": 3,
+    "name": "Anjali Sharma",
+    "phone": "+977-9823456789",
+    "email": "anjali@example.com",
+    "status": "Rejected",
+    "interestedCountry": "UK",
+    "interestedCourse": "Mechanical Engineering",
+    "city": "Lalitpur"
+  },
+  {
+    "id": 4,
+    "name": "Ramesh Thapa",
+    "phone": "+977-9834567890",
+    "email": "ramesh@example.com",
+    "status": "Pending",
+    "interestedCountry": "Australia",
+    "interestedCourse": "Civil Engineering",
+    "city": "Bhaktapur"
+  },
+  {
+    "id": 5,
+    "name": "Priya Adhikari",
+    "phone": "+977-9845678901",
+    "email": "priya@example.com",
+    "status": "Accepted",
+    "interestedCountry": "Germany",
+    "interestedCourse": "Data Science",
+    "city": "Kathmandu"
+  },
+  {
+    "id": 6,
+    "name": "Sandeep Rai",
+    "phone": "+977-9856789012",
+    "email": "sandeep@example.com",
+    "status": "Pending",
+    "interestedCountry": "USA",
+    "interestedCourse": "Information Technology",
+    "city": "Pokhara"
+  }
+]
