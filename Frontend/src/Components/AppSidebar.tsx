@@ -5,8 +5,6 @@ import {
   SidebarGroupLabel,
   SidebarGroupContent,
   SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
 } from "@/Components/ui/sidebar"
 
 import {
@@ -27,6 +25,8 @@ import {
   Settings,
 } from "lucide-react"
 
+import SidebarNavItem from "./SidebarNavItem"
+
 const AppSidebar = () => {
   return (
     <ShadcnSidebar className="bg-background border-r">
@@ -40,62 +40,52 @@ const AppSidebar = () => {
 
           <SidebarGroupContent>
             <SidebarMenu className="space-y-1">
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  isActive
-                  className="gap-3 rounded-lg px-3 py-2 text-sm font-medium"
-                >
-                  <LayoutDashboard className="h-4 w-4" />
-                  <span>Dashboard</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              <SidebarNavItem
+                to="/"
+                icon={LayoutDashboard}
+                label="Dashboard"
+              />
 
-              <SidebarMenuItem>
-                <SidebarMenuButton className="gap-3 rounded-lg px-3 py-2 text-sm">
-                  <Users className="h-4 w-4" />
-                  <span>Applicants</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              <SidebarNavItem
+                to="/applicants"
+                icon={Users}
+                label="Applicants"
+              />
 
-              <SidebarMenuItem>
-                <SidebarMenuButton className="gap-3 rounded-lg px-3 py-2 text-sm">
-                  <CreditCard className="h-4 w-4" />
-                  <span>Payments</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              <SidebarNavItem
+                to="/payments"
+                icon={CreditCard}
+                label="Payments"
+              />
 
-              <SidebarMenuItem>
-                <SidebarMenuButton className="gap-3 rounded-lg px-3 py-2 text-sm">
-                  <BookOpen className="h-4 w-4" />
-                  <span>Classes</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              <SidebarNavItem
+                to="/classes"
+                icon={BookOpen}
+                label="Classes"
+              />
 
-              <SidebarMenuItem>
-                <SidebarMenuButton className="gap-3 rounded-lg px-3 py-2 text-sm">
-                  <Contact className="h-4 w-4" />
-                  <span>Contacts</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              <SidebarNavItem
+                to="/contacts"
+                icon={Contact}
+                label="Contacts"
+              />
 
-              <SidebarMenuItem>
-                <SidebarMenuButton className="gap-3 rounded-lg px-3 py-2 text-sm">
-                  <Clock className="h-4 w-4" />
-                  <span>Attendance</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              <SidebarNavItem
+                to="/attendance"
+                icon={Clock}
+                label="Attendance"
+              />
 
-              <SidebarMenuItem>
-                <SidebarMenuButton className="gap-3 rounded-lg px-3 py-2 text-sm">
-                  <LogIn className="h-4 w-4" />
-                  <span>Check-ins</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              <SidebarNavItem
+                to="/check-ins"
+                icon={LogIn}
+                label="Check-ins"
+              />
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {/* MANAGEMENT */}
+        {/*  MANAGEMENT  */}
         <SidebarGroup className="mb-6">
           <SidebarGroupLabel className="text-xs font-semibold text-muted-foreground px-3 mb-2 tracking-wide">
             MANAGEMENT
@@ -103,27 +93,18 @@ const AppSidebar = () => {
 
           <SidebarGroupContent>
             <SidebarMenu className="space-y-1">
-              {[
-                [Briefcase, "Consultancies"],
-                [UserCog, "Team"],
-                [CheckSquare, "Tasks"],
-                [Globe, "Countries"],
-                [GraduationCap, "Teachers"],
-                [GitBranch, "Workflow"],
-                [Package, "Services"],
-              ].map(([Icon, label], i) => (
-                <SidebarMenuItem key={i}>
-                  <SidebarMenuButton className="gap-3 rounded-lg px-3 py-2 text-sm">
-                    <Icon className="h-4 w-4" />
-                    <span>{label}</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
+              <SidebarNavItem to="/consultancies" icon={Briefcase} label="Consultancies" />
+              <SidebarNavItem to="/team" icon={UserCog} label="Team" />
+              <SidebarNavItem to="/tasks" icon={CheckSquare} label="Tasks" />
+              <SidebarNavItem to="/countries" icon={Globe} label="Countries" />
+              <SidebarNavItem to="/teachers" icon={GraduationCap} label="Teachers" />
+              <SidebarNavItem to="/workflow" icon={GitBranch} label="Workflow" />
+              <SidebarNavItem to="/services" icon={Package} label="Services" />
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {/* OTHERS */}
+        {/*  OTHERS */}
         <SidebarGroup>
           <SidebarGroupLabel className="text-xs font-semibold text-muted-foreground px-3 mb-2 tracking-wide">
             OTHERS
@@ -131,12 +112,11 @@ const AppSidebar = () => {
 
           <SidebarGroupContent>
             <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton className="gap-3 rounded-lg px-3 py-2 text-sm">
-                  <Settings className="h-4 w-4" />
-                  <span>Settings</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              <SidebarNavItem
+                to="/settings"
+                icon={Settings}
+                label="Settings"
+              />
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
