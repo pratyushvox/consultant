@@ -1,0 +1,21 @@
+{
+  "statsCards": [
+    { "id": 1, "title": "All Applicants", "count": 13},
+    { "id": 2, "title": "Leads", "count": 0 },
+    { "id": 3, "title": "Inquiring", "count": 0 },
+    { "id": 4, "title": "Class Enrollment", "count": 12 },
+    { "id": 5, "title": "Abroad Enrollment", "count": 1},
+    { "id": 6, "title": "Courses", "count": 0 },
+    { "id": 7, "title": "Tasks", "count": 0 },
+    { "id": 8, "title": "Due Tasks", "count": 0 }
+  ],
+  "visaStatusData": [
+    { "status": "Approved", "count": 5 },
+    { "status": "Pending", "count": 3 },
+    { "status": "Rejected", "count": 0 }
+  ],
+  "conversionsData": [
+    { "type": "Abroad Enrollment", "count": 1 },
+    { "type": "Class Enrollment", "count": 12 }
+  ]
+}
