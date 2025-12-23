@@ -18,6 +18,8 @@ import { Button } from "@/components/ui/button";
 import { MoreHorizontal, Eye, Pencil, Trash } from "lucide-react";
 import { fetchApplicants } from "@/Services/ApplicantService";
 import ApplicantProfileView from "@/Components/ViewProfileCard";
+ import ApplicantProfileEdit from "@/Components/EditProfileCard";
+
 
 interface Applicant {
   id: number;
@@ -30,9 +32,19 @@ interface Applicant {
   city: string;
 }
 
+
+
 const ApplicantsPage = () => {
   const [data, setData] = useState<Applicant[]>([]);
   const [selectedApplicants , setSelectedApplicants] = useState<Applicant | null> (null);
+  const [editApplicant,setEditApplicant] = useState <Applicant | null > (null);
+
+
+  const handleUpdateApplicant = (updated:Applicant)=>{
+  setData((prev)=>
+  prev.map((a)=>(a.id === updated.id ? updated : a)))
+  setEditApplicant(null)
+}
   
 
   useEffect(() => {
@@ -103,7 +115,7 @@ const ApplicantsPage = () => {
 
                         <Eye className="mr-2 h-4 w-4" /> View
                       </DropdownMenuItem>
-                      <DropdownMenuItem>
+                      <DropdownMenuItem onClick={()=>setEditApplicant(app)}>
                         <Pencil className="mr-2 h-4 w-4" /> Edit
                       </DropdownMenuItem>
                       <DropdownMenuItem className="text-red-600">
@@ -130,6 +142,25 @@ const ApplicantsPage = () => {
                 </Dialog>
               )
             }
+            {editApplicant && (
+  <Dialog
+    open={!!editApplicant}
+    onOpenChange={() => setEditApplicant(null)}
+  >
+    <DialogContent className="sm:max-w-3xl w-full">
+      <DialogHeader>
+        <DialogTitle>Edit Applicant Profile</DialogTitle>
+      </DialogHeader>
+
+      <ApplicantProfileEdit
+        applicant={editApplicant}
+        onSave={handleUpdateApplicant}
+        onCancel={() => setEditApplicant(null)}
+      />
+    </DialogContent>
+  </Dialog>
+)}
+
           </>
         }
       />

@@ -1,36 +1,7 @@
- export interface Applicant {
-  id: number;
-  name: string;
-  phone: string;
-  email: string;
-  status: "Pending" | "Accepted" | "Rejected";
-  interestedCountry: string;
-  interestedCourse: string;
-  city: string;
+export type { Applicant } from "@/types/applicants";
 
-  dateOfBirth: string;
-  gender: string;
-  passportNumber: string;
-  highestQualification: string;
+// Right now, use mock
+export * from "./ApplicationService.mock";
 
-  englishTest?: string;
-  overallScore?: number;
-
-  appliedDate: string;
-  remarks: string;
-  address: string;
-  documents: string[];
-}
-
-
-export async function fetchApplicants(): Promise<Applicant[]> {
-  const res = await fetch("/Data/applicantsData.json"); 
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch applicants");
-  }
-
-  return res.json();
-}
-
-
+// Later, switch to backend API:
+// export * from "./ApplicantService.api";
