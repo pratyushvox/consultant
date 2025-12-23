@@ -5,6 +5,8 @@ import {
   TableHead,
   TableCell,
 } from "@/Components/ui/table";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogClose } from "@/Components/ui/dialog"
+
 import { Badge } from "@/Components/ui/badge";
 import {
   DropdownMenu,
@@ -15,6 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { MoreHorizontal, Eye, Pencil, Trash } from "lucide-react";
 import { fetchApplicants } from "@/Services/ApplicantService";
+import ApplicantProfileView from "@/Components/ViewProfileCard";
 
 interface Applicant {
   id: number;
@@ -29,6 +32,8 @@ interface Applicant {
 
 const ApplicantsPage = () => {
   const [data, setData] = useState<Applicant[]>([]);
+  const [selectedApplicants , setSelectedApplicants] = useState<Applicant | null> (null);
+  
 
   useEffect(() => {
     fetchApplicants().then(setData);
@@ -36,7 +41,7 @@ const ApplicantsPage = () => {
 
   return (
     <div className="p-6 space-y-6">
-      {/* Header */}
+    
       <div>
         <h1 className="text-2xl font-semibold">Applicants</h1>
         <p className="text-sm text-muted-foreground">
@@ -94,7 +99,8 @@ const ApplicantsPage = () => {
                     </DropdownMenuTrigger>
 
                     <DropdownMenuContent align="end">
-                      <DropdownMenuItem>
+                      <DropdownMenuItem onClick={() =>setSelectedApplicants(app)}>
+
                         <Eye className="mr-2 h-4 w-4" /> View
                       </DropdownMenuItem>
                       <DropdownMenuItem>
@@ -108,6 +114,22 @@ const ApplicantsPage = () => {
                 </TableCell>
               </TableRow>
             ))}
+            {
+              selectedApplicants && (
+                <Dialog open = {!!selectedApplicants} onOpenChange = {()=> setSelectedApplicants(null)}>
+
+                  <DialogContent className = "sm:max-w-3xl w-full">
+                    <DialogHeader>
+                      <DialogTitle>Applicant profile</DialogTitle>
+                      <DialogClose asChild>
+                       
+                      </DialogClose>
+                    </DialogHeader>
+                    <ApplicantProfileView applicant={selectedApplicants}/>
+                  </DialogContent>
+                </Dialog>
+              )
+            }
           </>
         }
       />

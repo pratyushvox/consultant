@@ -7,7 +7,16 @@
     "status": "Pending",
     "interestedCountry": "USA",
     "interestedCourse": "Computer Science",
-    "city": "Kathmandu"
+    "city": "Kathmandu",
+
+    "dateOfBirth": "1999-05-14",
+    "gender": "Female",
+    "passportNumber": "PA1234567",
+    "highestQualification": "Bachelor's Degree",
+    "appliedDate": "2024-12-10",
+    "remarks": "Waiting for English test booking",
+    "address": "Baneshwor, Kathmandu",
+    "documents": ["Passport", "Academic Transcript"]
   },
   {
     "id": 2,
@@ -17,7 +26,18 @@
     "status": "Accepted",
     "interestedCountry": "Canada",
     "interestedCourse": "Business Administration",
-    "city": "Pokhara"
+    "city": "Pokhara",
+
+    "dateOfBirth": "1998-09-22",
+    "gender": "Male",
+    "passportNumber": "PB7654321",
+    "highestQualification": "Bachelor's Degree",
+    "englishTest": "PTE",
+    "overallScore": 65,
+    "appliedDate": "2024-11-28",
+    "remarks": "Offer letter issued",
+    "address": "Lakeside, Pokhara",
+    "documents": ["Passport", "Academic Transcript", "Offer Letter"]
   },
   {
     "id": 3,
@@ -27,7 +47,18 @@
     "status": "Rejected",
     "interestedCountry": "UK",
     "interestedCourse": "Mechanical Engineering",
-    "city": "Lalitpur"
+    "city": "Lalitpur",
+
+    "dateOfBirth": "1997-03-10",
+    "gender": "Female",
+    "passportNumber": "PC9988776",
+    "highestQualification": "Diploma",
+    "englishTest": "IELTS",
+    "overallScore": 5.5,
+    "appliedDate": "2024-12-01",
+    "remarks": "English score below requirement",
+    "address": "Patan, Lalitpur",
+    "documents": ["Passport", "Academic Certificate"]
   },
   {
     "id": 4,
@@ -37,7 +68,16 @@
     "status": "Pending",
     "interestedCountry": "Australia",
     "interestedCourse": "Civil Engineering",
-    "city": "Bhaktapur"
+    "city": "Bhaktapur",
+
+    "dateOfBirth": "2000-01-05",
+    "gender": "Male",
+    "passportNumber": "PD1122334",
+    "highestQualification": "+2",
+    "appliedDate": "2024-12-12",
+    "remarks": "Documents under review",
+    "address": "Suryabinayak, Bhaktapur",
+    "documents": ["Passport", "Academic Certificate"]
   },
   {
     "id": 5,
@@ -47,7 +87,18 @@
     "status": "Accepted",
     "interestedCountry": "Germany",
     "interestedCourse": "Data Science",
-    "city": "Kathmandu"
+    "city": "Kathmandu",
+
+    "dateOfBirth": "1999-11-18",
+    "gender": "Female",
+    "passportNumber": "PE5566778",
+    "highestQualification": "Bachelor's Degree",
+    "englishTest": "IELTS",
+    "overallScore": 7.5,
+    "appliedDate": "2024-11-20",
+    "remarks": "Visa processing started",
+    "address": "Dillibazar, Kathmandu",
+    "documents": ["Passport", "Transcript", "Offer Letter"]
   },
   {
     "id": 6,
@@ -57,6 +108,15 @@
     "status": "Pending",
     "interestedCountry": "USA",
     "interestedCourse": "Information Technology",
-    "city": "Pokhara"
+    "city": "Pokhara",
+
+    "dateOfBirth": "2001-07-09",
+    "gender": "Male",
+    "passportNumber": "PF8899001",
+    "highestQualification": "+2",
+    "appliedDate": "2024-12-15",
+    "remarks": "Has not appeared for test",
+    "address": "Bagar, Pokhara",
+    "documents": ["Passport"]
   }
 ]
