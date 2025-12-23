@@ -8,6 +8,17 @@ export async function fetchApplicants(): Promise<Applicant[]> {
   return res.json();
 }
 
+export async function addApplicant(applicant: Applicant): Promise<Applicant> {
+  const res = await fetch(`${BASE_URL}/applicants`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(applicant),
+  });
+  if (!res.ok) throw new Error("Failed to add applicant");
+  return res.json();
+}
+
+
 export async function updateApplicant(applicant: Applicant): Promise<Applicant> {
   const res = await fetch(`${BASE_URL}/applicants/${applicant.id}`, {
     method: "PUT",

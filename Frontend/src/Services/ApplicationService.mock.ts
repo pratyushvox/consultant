@@ -17,6 +17,15 @@ export async function fetchApplicants(): Promise<Applicant[]> {
   return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 }
 
+export async function addApplicant(applicant: Applicant): Promise<Applicant> {
+  const list: Applicant[] = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  const newApplicant = { ...applicant, id: list.length ? list[list.length - 1].id + 1 : 1 };
+  list.push(newApplicant);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  return newApplicant;
+}
+
+
 export async function updateApplicant(applicant: Applicant): Promise<Applicant> {
   const list: Applicant[] = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
   const updatedList = list.map(a => (a.id === applicant.id ? applicant : a));
