@@ -18,13 +18,20 @@ import {
 } from "@/Components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { MoreHorizontal, Eye, Pencil, Trash, Plus } from "lucide-react";
-import { fetchApplicants } from "@/Services/ApplicantService";
+import { fetchApplicants, deleteApplicant } from "@/Services/ApplicantService";
 import ApplicantProfileView from "@/Components/ViewProfileCard";
 import ApplicantProfileEdit from "@/Components/EditProfileCard";
 import AddApplicantDialog from "@/Components/AddApplicants";
 import type { AddApplicantInput } from "@/Schema/Applicants";
 import { Input } from "@/Components/ui/input";
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/Components/ui/select";
+import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "@/Components/ui/select";
+import ConfirmDialog from "@/Components/Confirmationdialogue";
 
 interface Applicant {
   id: number;
@@ -39,16 +46,19 @@ interface Applicant {
 
 const ApplicantsPage = () => {
   const [data, setData] = useState<Applicant[]>([]);
-  const [selectedApplicants, setSelectedApplicants] = useState<Applicant | null>(null);
+  const [selectedApplicants, setSelectedApplicants] =
+    useState<Applicant | null>(null);
   const [editApplicant, setEditApplicant] = useState<Applicant | null>(null);
   const [addOpen, setAddOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchText, setSearchText] = useState("");
-  const [filterStatus, setFilterStatus] = useState<string>("All"); // default filter
+  const [filterStatus, setFilterStatus] = useState<string>("All");
+  const [deleteTarget, setDeleteTarget] = useState<Applicant | null>(null);
 
-  // Filter applicants by search text + status
   const filteredData = data.filter((app) => {
-    const matchesSearch = app.name.toLowerCase().includes(searchText.toLowerCase());
+    const matchesSearch = app.name
+      .toLowerCase()
+      .includes(searchText.toLowerCase());
     const matchesFilter = filterStatus === "All" || app.status === filterStatus;
     return matchesSearch && matchesFilter;
   });
@@ -63,6 +73,15 @@ const ApplicantsPage = () => {
   const handleUpdateApplicant = (updated: Applicant) => {
     setData((prev) => prev.map((a) => (a.id === updated.id ? updated : a)));
     setEditApplicant(null);
+  };
+
+  const handleDeleteApplicant = async () => {
+    if (!deleteTarget) return;
+
+    await deleteApplicant(deleteTarget.id);
+
+    setData((prev) => prev.filter((a) => a.id !== deleteTarget.id));
+    setDeleteTarget(null);
   };
 
   const handleAddApplicant = (newApplicant: AddApplicantInput) => {
@@ -82,15 +101,16 @@ const ApplicantsPage = () => {
 
   return (
     <div className="p-6 space-y-6">
-      {/* Header with search + filter + add button */}
+      {/* Header */}
       <div className="flex justify-between items-center">
         <div>
           <h1 className="text-2xl font-semibold">Applicants</h1>
-          <p className="text-sm text-muted-foreground">Manage your applicant database</p>
+          <p className="text-sm text-muted-foreground">
+            Manage your applicant database
+          </p>
         </div>
 
         <div className="flex items-center gap-2">
-          {/* Search */}
           <Input
             placeholder="Search applicants by name..."
             value={searchText}
@@ -98,7 +118,6 @@ const ApplicantsPage = () => {
             className="w-64"
           />
 
-          {/* Status Filter */}
           <Select value={filterStatus} onValueChange={setFilterStatus}>
             <SelectTrigger className="w-40">
               <SelectValue placeholder="Filter by status" />
@@ -111,7 +130,6 @@ const ApplicantsPage = () => {
             </SelectContent>
           </Select>
 
-          {/* Add Applicant */}
           <Button
             className="flex items-center gap-2 bg-[#10b981] hover:bg-[#059669] text-white"
             onClick={() => setAddOpen(true)}
@@ -167,13 +185,18 @@ const ApplicantsPage = () => {
                         </Button>
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end">
-                        <DropdownMenuItem onClick={() => setSelectedApplicants(app)}>
+                        <DropdownMenuItem
+                          onClick={() => setSelectedApplicants(app)}
+                        >
                           <Eye className="mr-2 h-4 w-4" /> View
                         </DropdownMenuItem>
                         <DropdownMenuItem onClick={() => setEditApplicant(app)}>
                           <Pencil className="mr-2 h-4 w-4" /> Edit
                         </DropdownMenuItem>
-                        <DropdownMenuItem className="text-red-600">
+                        <DropdownMenuItem
+                          className="text-red-600"
+                          onClick={() => setDeleteTarget(app)}
+                        >
                           <Trash className="mr-2 h-4 w-4" /> Delete
                         </DropdownMenuItem>
                       </DropdownMenuContent>
@@ -199,7 +222,9 @@ const ApplicantsPage = () => {
           Page {currentPage} of {totalPages}
         </span>
         <Button
-          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+          onClick={() =>
+            setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+          }
           disabled={currentPage === totalPages}
           className="bg-[#3b82f6] hover:bg-[#2563eb] text-white rounded-md px-4 py-1"
         >
@@ -207,21 +232,28 @@ const ApplicantsPage = () => {
         </Button>
       </div>
 
-      {/* Dialogs */}
+      {/* View Dialog */}
       {selectedApplicants && (
-        <Dialog open={!!selectedApplicants} onOpenChange={() => setSelectedApplicants(null)}>
+        <Dialog
+          open={!!selectedApplicants}
+          onOpenChange={() => setSelectedApplicants(null)}
+        >
           <DialogContent className="sm:max-w-3xl w-full">
             <DialogHeader>
               <DialogTitle>Applicant profile</DialogTitle>
-              <DialogClose asChild></DialogClose>
+              <DialogClose asChild />
             </DialogHeader>
             <ApplicantProfileView applicant={selectedApplicants} />
           </DialogContent>
         </Dialog>
       )}
 
+      {/* Edit Dialog */}
       {editApplicant && (
-        <Dialog open={!!editApplicant} onOpenChange={() => setEditApplicant(null)}>
+        <Dialog
+          open={!!editApplicant}
+          onOpenChange={() => setEditApplicant(null)}
+        >
           <DialogContent className="sm:max-w-3xl w-full">
             <DialogHeader>
               <DialogTitle>Edit Applicant Profile</DialogTitle>
@@ -235,10 +267,22 @@ const ApplicantsPage = () => {
         </Dialog>
       )}
 
-      <AddApplicantDialog open={addOpen} onClose={() => setAddOpen(false)} onAdd={handleAddApplicant} />
-        
+      {/* ✅ Controlled Confirm Dialog */}
+      <ConfirmDialog
+        open={!!deleteTarget}
+        onOpenChange={(open) => {
+          if (!open) setDeleteTarget(null);
+        }}
+        onConfirm={handleDeleteApplicant}
+      />
+
+      <AddApplicantDialog
+        open={addOpen}
+        onClose={() => setAddOpen(false)}
+        onAdd={handleAddApplicant}
+      />
     </div>
   );
 };
 
-export default ApplicantsPage; 
+export default ApplicantsPage;
