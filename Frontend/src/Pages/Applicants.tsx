@@ -18,7 +18,13 @@ import {
 } from "@/Components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { MoreHorizontal, Eye, Pencil, Trash, Plus } from "lucide-react";
-import { fetchApplicants, deleteApplicant } from "@/Services/ApplicantService";
+import {
+  fetchApplicants,
+  addApplicant,
+  updateApplicant,
+  deleteApplicant,
+} from "@/Services/ApplicantService";
+
 import ApplicantProfileView from "@/Components/ViewProfileCard";
 import ApplicantProfileEdit from "@/Components/EditProfileCard";
 import AddApplicantDialog from "@/Components/AddApplicants";
@@ -32,17 +38,9 @@ import {
   SelectItem,
 } from "@/Components/ui/select";
 import ConfirmDialog from "@/Components/Confirmationdialogue";
+import  type {Applicant} from "@/types/applicants"
 
-interface Applicant {
-  id: number;
-  name: string;
-  phone: string;
-  email: string;
-  status: "Pending" | "Accepted" | "Rejected";
-  interestedCountry: string;
-  interestedCourse: string;
-  city: string;
-}
+
 
 const ApplicantsPage = () => {
   const [data, setData] = useState<Applicant[]>([]);
@@ -70,10 +68,16 @@ const ApplicantsPage = () => {
     currentPage * rowsPerPage
   );
 
-  const handleUpdateApplicant = (updated: Applicant) => {
-    setData((prev) => prev.map((a) => (a.id === updated.id ? updated : a)));
-    setEditApplicant(null);
-  };
+  const handleUpdateApplicant = async (updated: Applicant) => {
+  const saved = await updateApplicant(updated);
+
+  setData((prev) =>
+    prev.map((a) => (a.id === saved.id ? saved : a))
+  );
+
+  setEditApplicant(null);
+};
+
 
   const handleDeleteApplicant = async () => {
     if (!deleteTarget) return;
@@ -84,16 +88,14 @@ const ApplicantsPage = () => {
     setDeleteTarget(null);
   };
 
-  const handleAddApplicant = (newApplicant: AddApplicantInput) => {
-    setData((prev) => [
-      ...prev,
-      {
-        id: prev.length + 1,
-        status: "Pending",
-        ...newApplicant,
-      },
-    ]);
-  };
+  const handleAddApplicant = async (newApplicant: AddApplicantInput) => {
+  const created = await addApplicant({
+    ...newApplicant,
+    status: "Pending",
+  } as Applicant);
+
+  setData((prev) => [...prev, created]);
+};
 
   useEffect(() => {
     fetchApplicants().then(setData);
