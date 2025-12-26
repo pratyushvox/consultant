@@ -269,7 +269,7 @@ const ApplicantsPage = () => {
         </Dialog>
       )}
 
-      {/* ✅ Controlled Confirm Dialog */}
+      
       <ConfirmDialog
         open={!!deleteTarget}
         onOpenChange={(open) => {

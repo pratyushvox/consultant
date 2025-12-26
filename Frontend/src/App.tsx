@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Mainlayout from './Layout/Mainlayout'
 import Dashboard from './Pages/Dashboard'
 import Applicants from './Pages/Applicants'
+import  Payments  from './Pages/Payment';
 
 
 
@@ -23,6 +24,10 @@ const appRouter = createBrowserRouter([
         path: "/Applicants",
         element : <Applicants/>
 
+      },
+      {
+        path : "/payments",
+        element: <Payments/>
       }
     ]
   }

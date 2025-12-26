@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "invoiceNumber": "INV-001",
+    "applicant": "Sujata Thatal",
+    "paymentType": "Consultancy Fee",
+    "description": "Initial consultancy payment",
+    "amount": 1500,
+    "paid": 1000,
+    "due": 500,
+    "status": "Remaining",
+    "PaymentMethod" : "Cash",
+    "invoiceDate": "2025-01-05"
+  },
+  {
+    "id": 2,
+    "invoiceNumber": "INV-002",
+    "applicant": "Pratyush Khadka",
+    "paymentType": "Visa Processing",
+    "description": "UK student visa processing",
+    "amount": 3000,
+    "paid": 3000,
+    "due": 0,
+    "status": "Paid",
+    "PaymentMethod": "QR",
+    "invoiceDate": "2025-01-10"
+  },
+  {
+    "id": 3,
+    "invoiceNumber": "INV-003",
+    "applicant": "Sameer Ghimire",
+    "paymentType": "Application Fee",
+    "description": "University application submission",
+    "amount": 2000,
+    "paid": 0,
+    "due": 2000,
+    "status": "Unpaid",
+    "paymentMethod" : "",
+    "invoiceDate": "2025-01-12"
+  }
+]

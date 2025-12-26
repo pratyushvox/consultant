@@ -10,7 +10,7 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@
 
 import { addApplicantSchema,type AddApplicantInput } from "@/Schema/Applicants";
 import type { Applicant } from "@/types/applicants";
-import { addApplicant } from "@/Services/ApplicationService.mock";
+import { addApplicant } from "@/Services/ApplicantService";
 
 interface AddApplicantDialogProps {
   open: boolean;
