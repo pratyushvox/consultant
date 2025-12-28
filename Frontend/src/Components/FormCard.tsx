@@ -17,7 +17,7 @@ interface ProfileCardProps {
   footer?: ReactNode;        
 }
 
-const ProfileCard = ({
+const FormCard = ({
   title,
   subtitle,
   headerRight,
@@ -50,4 +50,4 @@ const ProfileCard = ({
   );
 };
 
-export default ProfileCard;
+export default FormCard;

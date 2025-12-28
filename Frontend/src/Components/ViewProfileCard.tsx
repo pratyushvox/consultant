@@ -1,9 +1,10 @@
-import ProfileCard from "@/Components/ProfileCard";
-import ProfileField from "@/Components/Common/ProfileFiled";
+import FormCard from "@/Components/FormCard";
+import FormField from "@/Components/Common/FormFiled";
+
 import { Badge } from "@/Components/ui/badge";
 import { Avatar, AvatarFallback } from "@/Components/ui/avatar";
 import { getInitials } from "@/lib/getInititals";
-import type {Applicant} from "@/Services/ApplicantService"
+import type { Applicant } from "@/Services/ApplicantService";
 
 interface ApplicantProfileViewProps {
   applicant: Applicant;
@@ -11,13 +12,13 @@ interface ApplicantProfileViewProps {
 
 const ApplicantProfileView = ({ applicant }: ApplicantProfileViewProps) => {
   return (
-    <ProfileCard
+    <FormCard
       title={applicant.name}
       subtitle={applicant.email}
       headerRight={
-        <div className="flex items-center gap-3 ">
-          <Avatar className="w-20 h-20  text-white">
-            <AvatarFallback className=" bg-green-400 font-bold text-2xl flex items-center justify-center">
+        <div className="flex items-center gap-3">
+          <Avatar className="w-20 h-20 text-white">
+            <AvatarFallback className="bg-green-400 font-bold text-2xl flex items-center justify-center">
               {getInitials(applicant.name)}
             </AvatarFallback>
           </Avatar>
@@ -37,62 +38,62 @@ const ApplicantProfileView = ({ applicant }: ApplicantProfileViewProps) => {
       }
     >
       {/* PERSONAL INFO */}
-      <section className="  grid grid-cols-2 gap-4">
-        <ProfileField label="Phone">{applicant.phone}</ProfileField>
-        <ProfileField label="Gender">{applicant.gender}</ProfileField>
-        <ProfileField label="Date of Birth">
+      <section className="grid grid-cols-2 gap-4">
+        <FormField label="Phone">{applicant.phone}</FormField>
+        <FormField label="Gender">{applicant.gender}</FormField>
+        <FormField label="Date of Birth">
           {applicant.dateOfBirth}
-        </ProfileField>
-        <ProfileField label="Passport Number">
+        </FormField>
+        <FormField label="Passport Number">
           {applicant.passportNumber}
-        </ProfileField>
+        </FormField>
       </section>
 
       {/* ACADEMIC INFO */}
       <section className="grid grid-cols-2 gap-4">
-        <ProfileField label="Highest Qualification">
+        <FormField label="Highest Qualification">
           {applicant.highestQualification}
-        </ProfileField>
-        <ProfileField label="Interested Course">
+        </FormField>
+        <FormField label="Interested Course">
           {applicant.interestedCourse}
-        </ProfileField>
-        <ProfileField label="Interested Country">
+        </FormField>
+        <FormField label="Interested Country">
           {applicant.interestedCountry}
-        </ProfileField>
-        <ProfileField label="City">{applicant.city}</ProfileField>
+        </FormField>
+        <FormField label="City">{applicant.city}</FormField>
       </section>
 
       {/* ENGLISH TEST (OPTIONAL) */}
       {applicant.englishTest && (
         <section className="grid grid-cols-2 gap-4">
-          <ProfileField label="English Test">
+          <FormField label="English Test">
             {applicant.englishTest}
-          </ProfileField>
+          </FormField>
           {applicant.overallScore !== undefined && (
-            <ProfileField label="Overall Score">
+            <FormField label="Overall Score">
               {applicant.overallScore}
-            </ProfileField>
+            </FormField>
           )}
         </section>
       )}
 
       {/* META INFO */}
       <section className="grid grid-cols-2 gap-4">
-        <ProfileField label="Applied Date">
+        <FormField label="Applied Date">
           {applicant.appliedDate}
-        </ProfileField>
-        <ProfileField label="Address">
+        </FormField>
+        <FormField label="Address">
           {applicant.address}
-        </ProfileField>
+        </FormField>
       </section>
 
       {/* REMARKS */}
-      <ProfileField label="Remarks">
+      <FormField label="Remarks">
         {applicant.remarks}
-      </ProfileField>
+      </FormField>
 
       {/* DOCUMENTS */}
-      <ProfileField label="Documents">
+      <FormField label="Documents">
         <div className="flex flex-wrap gap-2">
           {applicant.documents.map((doc) => (
             <Badge key={doc} variant="outline">
@@ -100,8 +101,8 @@ const ApplicantProfileView = ({ applicant }: ApplicantProfileViewProps) => {
             </Badge>
           ))}
         </div>
-      </ProfileField>
-    </ProfileCard>
+      </FormField>
+    </FormCard>
   );
 };
 

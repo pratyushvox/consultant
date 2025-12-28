@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/Components/ui/dialog";
-import ProfileCard from "@/Components/ProfileCard";
-import ProfileField from "@/Components/Common/ProfileFiled";
+import ProfileCard from "@/Components/FormCard";
+import ProfileField from "@/Components/Common/FormFiled";
 import { Input } from "@/Components/ui/input";
 import { Textarea } from "@/Components/ui/textarea";
 import { Button } from "@/Components/ui/button";

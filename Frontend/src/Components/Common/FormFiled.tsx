@@ -6,7 +6,7 @@ interface ProfileFieldProps {
   children: ReactNode;
 }
 
-const ProfileField = ({ label, children }: ProfileFieldProps) => {
+const FormField = ({ label, children }: ProfileFieldProps) => {
   return (
     <div className="grid gap-1">
       <Label className="text-muted-foreground text-xs">
@@ -17,4 +17,4 @@ const ProfileField = ({ label, children }: ProfileFieldProps) => {
   );
 };
 
-export default ProfileField;
+export default FormField;

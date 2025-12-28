@@ -16,6 +16,7 @@ import { Dialog, DialogHeader, DialogContent, DialogTitle } from "@/Components/u
 import { Pencil, Trash } from "lucide-react";
 import CreateInvoiceDialog from "@/Components/Createinvoice"
 import ConfirmDialog from "@/Components/Confirmationdialogue";
+import EditPayment from "@/Components/EditPayment";
 
 const Payments = () => {
   const [payments, setPayments] = useState<Payment[]>([]);
@@ -25,6 +26,8 @@ const Payments = () => {
   const [openTotalDialog, setOpenTotalDialog] = useState(false);
   const [openCreateDialog, setOpenCreateDialog] = useState(false); 
   const [deleteTarget, setDeleteTarget] = useState<Payment | null>(null);
+  const [editPayment, setEditPayment] = useState<Payment | null>(null);
+
 
   
 
@@ -119,7 +122,7 @@ const Payments = () => {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={() =>setEditPayment(payment)}>
                 <Pencil className="mr-2 h-4 w-4" /> Edit
               </DropdownMenuItem>
            <DropdownMenuItem
@@ -153,7 +156,7 @@ const Payments = () => {
         </div>
         <div className="flex gap-2">
           <Button
-            className="bg-[#059669] hover:text-white flex items-center gap-2"
+            className="bg-[#059669] hover: text-white flex items-center gap-2"
             onClick={() => setOpenCreateDialog(true)} // open dialog on click
           >
             <Plus className="w-4 h-4" /> Create Invoice
@@ -263,6 +266,35 @@ const Payments = () => {
     />
   </DialogContent>
 </Dialog>
+
+{editPayment && (
+  <Dialog
+    open={!!editPayment}
+    onOpenChange={(open) => {
+      if (!open) setEditPayment(null);
+    }}
+  >
+    <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+      <DialogHeader>
+        <DialogTitle>Edit Payment</DialogTitle>
+      </DialogHeader>
+
+      <EditPayment
+        payment={editPayment}
+        onCancel={() => setEditPayment(null)}
+        onSave={(updated) => {
+          setPayments((prev) =>
+            prev.map((p) =>
+              p.id === updated.id ? updated : p
+            )
+          );
+          setEditPayment(null);
+        }}
+      />
+    </DialogContent>
+  </Dialog>
+)}
+
 
 
  <ConfirmDialog
