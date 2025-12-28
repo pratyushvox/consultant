@@ -41,67 +41,62 @@ const ApplicantProfileView = ({ applicant }: ApplicantProfileViewProps) => {
       <section className="grid grid-cols-2 gap-4">
         <FormField label="Phone">{applicant.phone}</FormField>
         <FormField label="Gender">{applicant.gender}</FormField>
-        <FormField label="Date of Birth">
-          {applicant.dateOfBirth}
-        </FormField>
-        <FormField label="Passport Number">
-          {applicant.passportNumber}
-        </FormField>
+        <FormField label="Date of Birth">{applicant.dateOfBirth}</FormField>
+        <FormField label="Passport Number">{applicant.passportNumber}</FormField>
+        <FormField label="Citizenship">{applicant.citizenship}</FormField>
       </section>
 
       {/* ACADEMIC INFO */}
-      <section className="grid grid-cols-2 gap-4">
-        <FormField label="Highest Qualification">
-          {applicant.highestQualification}
-        </FormField>
-        <FormField label="Interested Course">
-          {applicant.interestedCourse}
-        </FormField>
-        <FormField label="Interested Country">
-          {applicant.interestedCountry}
-        </FormField>
+      <section className="grid grid-cols-2 gap-4 mt-4">
+        <FormField label="Highest Qualification">{applicant.highestQualification}</FormField>
+        <FormField label="Interested Course">{applicant.interestedCourse}</FormField>
+        <FormField label="Interested Country">{applicant.interestedCountry}</FormField>
         <FormField label="City">{applicant.city}</FormField>
       </section>
 
-      {/* ENGLISH TEST (OPTIONAL) */}
-      {applicant.englishTest && (
-        <section className="grid grid-cols-2 gap-4">
-          <FormField label="English Test">
-            {applicant.englishTest}
-          </FormField>
-          {applicant.overallScore !== undefined && (
-            <FormField label="Overall Score">
-              {applicant.overallScore}
-            </FormField>
-          )}
-        </section>
-      )}
+      {/* GUARDIAN INFO */}
+      <section className="grid grid-cols-2 gap-4 mt-4">
+        <FormField label="Guardian Name">{applicant.guardian.guardianName}</FormField>
+        <FormField label="Guardian Phone">{applicant.guardian.guardianPhone}</FormField>
+        <FormField label="Guardian Relation">{applicant.guardian.guardianRelation}</FormField>
+      </section>
 
-      {/* META INFO */}
-      <section className="grid grid-cols-2 gap-4">
-        <FormField label="Applied Date">
-          {applicant.appliedDate}
-        </FormField>
-        <FormField label="Address">
-          {applicant.address}
-        </FormField>
+      {/* FINANCIAL INFO */}
+      <section className="grid grid-cols-2 gap-4 mt-4">
+        <FormField label="Budget Required">{applicant.budgetRequired}</FormField>
+        <FormField label="Financial Capacity">{applicant.financialCapacity}</FormField>
+        <FormField label="Preferred Intake">{applicant.preferredIntake}</FormField>
       </section>
 
       {/* REMARKS */}
-      <FormField label="Remarks">
-        {applicant.remarks}
+      <div className="mt-4">
+        <FormField label="Evaluation Remarks" >
+        {applicant.remarks || "N/A"}
       </FormField>
 
+
+
+      </div>
+      
       {/* DOCUMENTS */}
-      <FormField label="Documents">
+      <div className="mt-4">
+        <FormField label="Documents" >
         <div className="flex flex-wrap gap-2">
           {applicant.documents.map((doc) => (
-            <Badge key={doc} variant="outline">
-              {doc}
+            <Badge
+              key={doc}
+              variant="outline"
+              className="cursor-pointer hover:bg-gray-100"
+              onClick={() => window.open(doc, "_blank")}
+            >
+              {doc.split("/").pop() || doc}
             </Badge>
           ))}
         </div>
       </FormField>
+
+      </div>
+      
     </FormCard>
   );
 };

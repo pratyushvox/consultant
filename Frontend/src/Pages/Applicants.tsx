@@ -235,20 +235,26 @@ const ApplicantsPage = () => {
       </div>
 
       {/* View Dialog */}
-      {selectedApplicants && (
-        <Dialog
-          open={!!selectedApplicants}
-          onOpenChange={() => setSelectedApplicants(null)}
-        >
-          <DialogContent className="sm:max-w-3xl w-full">
-            <DialogHeader>
-              <DialogTitle>Applicant profile</DialogTitle>
-              <DialogClose asChild />
-            </DialogHeader>
-            <ApplicantProfileView applicant={selectedApplicants} />
-          </DialogContent>
-        </Dialog>
-      )}
+      {/* View Dialog */}
+{selectedApplicants && (
+  <Dialog
+    open={!!selectedApplicants}
+    onOpenChange={() => setSelectedApplicants(null)}
+  >
+    <DialogContent className="sm:max-w-xl w-full max-h-[80vh] overflow-y-auto">
+      <DialogHeader>
+        <DialogTitle>Applicant Profile</DialogTitle>
+        <DialogClose asChild />
+      </DialogHeader>
+
+      {/* Add padding inside the scrollable content */}
+      <div className="p-4">
+        <ApplicantProfileView applicant={selectedApplicants} />
+      </div>
+    </DialogContent>
+  </Dialog>
+)}
+
 
       {/* Edit Dialog */}
       {editApplicant && (
@@ -256,7 +262,7 @@ const ApplicantsPage = () => {
           open={!!editApplicant}
           onOpenChange={() => setEditApplicant(null)}
         >
-          <DialogContent className="sm:max-w-3xl w-full">
+          <DialogContent className="sm:max-w-xl w-full max-h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>Edit Applicant Profile</DialogTitle>
             </DialogHeader>

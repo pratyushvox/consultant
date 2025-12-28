@@ -8,15 +8,39 @@
     "interestedCountry": "USA",
     "interestedCourse": "Computer Science",
     "city": "Kathmandu",
-
     "dateOfBirth": "1999-05-14",
     "gender": "Female",
     "passportNumber": "PA1234567",
+    "citizenship": "Nepal",
     "highestQualification": "Bachelor's Degree",
+    "academicHistory": [
+      {
+        "institution": "Kathmandu University",
+        "qualification": "Bachelor's Degree",
+        "major": "Computer Science",
+        "yearCompleted": 2021,
+        "grade": "CGPA 3.6"
+      }
+    ],
+    "budgetRequired": "USD 20,000",
+    "financialCapacity": "USD 22,000",
+    "preferredIntake": "Fall 2025",
+    "englishTest": "TOEFL",
+    "overallScore": 95,
     "appliedDate": "2024-12-10",
     "remarks": "Waiting for English test booking",
     "address": "Baneshwor, Kathmandu",
-    "documents": ["Passport", "Academic Transcript"]
+    "documents": [
+      "Passport",
+      "Academic Transcript",
+      "Certificate of Qualification",
+      "Resume/CV"
+    ],
+    "guardian": {
+      "guardianName": "Ramesh Thatal",
+      "guardianPhone": "+977-9812345670",
+      "guardianRelation": "Father"
+    }
   },
   {
     "id": 2,
@@ -27,17 +51,40 @@
     "interestedCountry": "Canada",
     "interestedCourse": "Business Administration",
     "city": "Pokhara",
-
     "dateOfBirth": "1998-09-22",
     "gender": "Male",
     "passportNumber": "PB7654321",
+    "citizenship": "Nepal",
     "highestQualification": "Bachelor's Degree",
+    "academicHistory": [
+      {
+        "institution": "Pokhara University",
+        "qualification": "Bachelor's Degree",
+        "major": "Business Administration",
+        "yearCompleted": 2020,
+        "grade": "CGPA 3.7"
+      }
+    ],
+    "budgetRequired": "CAD 25,000",
+    "financialCapacity": "CAD 27,000",
+    "preferredIntake": "Spring 2025",
     "englishTest": "PTE",
     "overallScore": 65,
     "appliedDate": "2024-11-28",
     "remarks": "Offer letter issued",
     "address": "Lakeside, Pokhara",
-    "documents": ["Passport", "Academic Transcript", "Offer Letter"]
+    "documents": [
+      "Passport",
+      "Academic Transcript",
+      "Certificate of Qualification",
+      "Offer Letter",
+      "Resume/CV"
+    ],
+    "guardian": {
+      "guardianName": "Sushila Khadka",
+      "guardianPhone": "+977-9812345671",
+      "guardianRelation": "Mother"
+    }
   },
   {
     "id": 3,
@@ -48,17 +95,39 @@
     "interestedCountry": "UK",
     "interestedCourse": "Mechanical Engineering",
     "city": "Lalitpur",
-
     "dateOfBirth": "1997-03-10",
     "gender": "Female",
     "passportNumber": "PC9988776",
+    "citizenship": "Nepal",
     "highestQualification": "Diploma",
+    "academicHistory": [
+      {
+        "institution": "Lalitpur Technical Institute",
+        "qualification": "Diploma",
+        "major": "Mechanical Engineering",
+        "yearCompleted": 2018,
+        "grade": "Distinction"
+      }
+    ],
+    "budgetRequired": "GBP 15,000",
+    "financialCapacity": "GBP 12,000",
+    "preferredIntake": "Fall 2024",
     "englishTest": "IELTS",
     "overallScore": 5.5,
     "appliedDate": "2024-12-01",
     "remarks": "English score below requirement",
     "address": "Patan, Lalitpur",
-    "documents": ["Passport", "Academic Certificate"]
+    "documents": [
+      "Passport",
+      "Academic Transcript",
+      "Certificate of Qualification",
+      "Resume/CV"
+    ],
+    "guardian": {
+      "guardianName": "Ram Sharma",
+      "guardianPhone": "+977-9823456780",
+      "guardianRelation": "Father"
+    }
   },
   {
     "id": 4,
@@ -69,15 +138,37 @@
     "interestedCountry": "Australia",
     "interestedCourse": "Civil Engineering",
     "city": "Bhaktapur",
-
     "dateOfBirth": "2000-01-05",
     "gender": "Male",
     "passportNumber": "PD1122334",
+    "citizenship": "Nepal",
     "highestQualification": "+2",
+    "academicHistory": [
+      {
+        "institution": "Bhaktapur Higher Secondary School",
+        "qualification": "+2",
+        "major": "Science",
+        "yearCompleted": 2018,
+        "grade": "82%"
+      }
+    ],
+    "budgetRequired": "AUD 18,000",
+    "financialCapacity": "AUD 16,500",
+    "preferredIntake": "Summer 2025",
     "appliedDate": "2024-12-12",
     "remarks": "Documents under review",
     "address": "Suryabinayak, Bhaktapur",
-    "documents": ["Passport", "Academic Certificate"]
+    "documents": [
+      "Passport",
+      "Academic Transcript",
+      "Certificate of Qualification",
+      "Resume/CV"
+    ],
+    "guardian": {
+      "guardianName": "Gita Thapa",
+      "guardianPhone": "+977-9834567891",
+      "guardianRelation": "Mother"
+    }
   },
   {
     "id": 5,
@@ -88,17 +179,40 @@
     "interestedCountry": "Germany",
     "interestedCourse": "Data Science",
     "city": "Kathmandu",
-
     "dateOfBirth": "1999-11-18",
     "gender": "Female",
     "passportNumber": "PE5566778",
+    "citizenship": "Nepal",
     "highestQualification": "Bachelor's Degree",
+    "academicHistory": [
+      {
+        "institution": "Kathmandu University",
+        "qualification": "Bachelor's Degree",
+        "major": "Data Science",
+        "yearCompleted": 2021,
+        "grade": "CGPA 3.8"
+      }
+    ],
+    "budgetRequired": "EUR 22,000",
+    "financialCapacity": "EUR 23,500",
+    "preferredIntake": "Winter 2025",
     "englishTest": "IELTS",
     "overallScore": 7.5,
     "appliedDate": "2024-11-20",
     "remarks": "Visa processing started",
     "address": "Dillibazar, Kathmandu",
-    "documents": ["Passport", "Transcript", "Offer Letter"]
+    "documents": [
+      "Passport",
+      "Academic Transcript",
+      "Certificate of Qualification",
+      "Offer Letter",
+      "Resume/CV"
+    ],
+    "guardian": {
+      "guardianName": "Suman Adhikari",
+      "guardianPhone": "+977-9845678900",
+      "guardianRelation": "Father"
+    }
   },
   {
     "id": 6,
@@ -109,14 +223,36 @@
     "interestedCountry": "USA",
     "interestedCourse": "Information Technology",
     "city": "Pokhara",
-
     "dateOfBirth": "2001-07-09",
     "gender": "Male",
     "passportNumber": "PF8899001",
+    "citizenship": "Nepal",
     "highestQualification": "+2",
+    "academicHistory": [
+      {
+        "institution": "Pokhara Higher Secondary School",
+        "qualification": "+2",
+        "major": "Science",
+        "yearCompleted": 2019,
+        "grade": "80%"
+      }
+    ],
+    "budgetRequired": "USD 19,000",
+    "financialCapacity": "USD 18,500",
+    "preferredIntake": "Fall 2025",
     "appliedDate": "2024-12-15",
     "remarks": "Has not appeared for test",
     "address": "Bagar, Pokhara",
-    "documents": ["Passport"]
+    "documents": [
+      "Passport",
+      "Academic Transcript",
+      "Certificate of Qualification",
+      "Resume/CV"
+    ],
+    "guardian": {
+      "guardianName": "Maya Rai",
+      "guardianPhone": "+977-9856789010",
+      "guardianRelation": "Mother"
+    }
   }
 ]

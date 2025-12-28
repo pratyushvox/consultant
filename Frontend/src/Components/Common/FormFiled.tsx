@@ -4,6 +4,7 @@ import { Label } from "@/Components/ui/label";
 interface ProfileFieldProps {
   label: string;
   children: ReactNode;
+  error?: string;
 }
 
 const FormField = ({ label, children }: ProfileFieldProps) => {
